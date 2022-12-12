@@ -1,6 +1,7 @@
 (function () {
   // config
-  let $list;
+  let $list
+
   
   // retorna os dados    
   function getData(callBack) {
@@ -24,17 +25,27 @@
     data.results.forEach((item) => {
       const $li = document.createElement('li') 
       const $p = document.createElement('p') 
+      const $p2 = document.createElement('p') 
+      const $h1 = document.createElement('h1') 
+      
+      
 
-      $li.innerHTML = item.name 
-      $p.innerHTML = item.model 
+      $h1.innerHTML = item.name 
+      $p.innerHTML =  item.model
+      $p2.innerHTML = item.manufacturer
+    
 
       $list.appendChild($li) // junta isso no meu html
-      $li.appendChild($p) 
+      $li.appendChild($h1) 
+      
+      $li.appendChild($p)
+      $li.appendChild($p2)
     })
   }
 
   function getDOMElements() {
     $list = document.getElementById('ships');
+    
   
   }
 
@@ -46,7 +57,7 @@
       createListElement(data);
      });
   }
-
+  
   window.onload = init;
 })()
 
